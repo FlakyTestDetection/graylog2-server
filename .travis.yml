@@ -15,6 +15,7 @@ cache:
   directories:
   - $HOME/.m2
 deploy:
+  skip_cleanup: true
   true:
     branch:
     - master
@@ -25,14 +26,13 @@ deploy:
     - 2.0
     jdk: oraclejdk8
     repo: Graylog2/graylog2-server
+  region: eu-west-1
+  local-dir: target/assembly
   provider: s3
   secret_access_key:
     secure: cYHsMgnAI08sz9G1Qb7ku2HoTaSn/OBBmjBzyYswX0/Kvb2asQcEGZGOEfYNTGOwdN6DP7p3axi5o+FPw2MLGGpBVz3tAtwYWTbzJR8kCEuGwb8N6abpdkGIn4AfifQ+vbn8zJrIB6HfGGRpDM9QnEjJFtpJO+2SjODzbZzkymE=
-  local-dir: target/assembly
-  skip_cleanup: true
-  region: eu-west-1
-  access_key_id: AKIAIGYGO43W76PZMMVA
   bucket: graylog2-builds
+  access_key_id: AKIAIGYGO43W76PZMMVA
 dist: trusty
 env:
   global:
@@ -48,7 +48,7 @@ notifications:
     rooms:
       flakycov: U2MeVOPjdi4up1U793ubeIUZ
     template:
-    - Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository}@%{branch}
-      by %{author} %{result} in %{duration}
-    - 'dashbot: %{repository_name} %{build_id}'
+    - '"Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository}@%{branch}
+      by %{author} %{result} in %{duration}"'
+    - '"dashbot: %{repository_name} %{build_id}"'
 sudo: required
