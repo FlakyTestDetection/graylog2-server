@@ -1,11 +1,8 @@
 after_success:
-- curl -X GET https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.der -o lets-encrypt-x3-cross-signed.der
-  && sudo keytool -trustcacerts -keystore $JAVA_HOME/jre/lib/security/cacerts -storepass
-  changeit -noprompt -importcert -alias lets-encrypt-x3-cross-signed -file lets-encrypt-x3-cross-signed.der
+- curl -X GET https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.der -o lets-encrypt-x3-cross-signed.der && sudo keytool -trustcacerts -keystore $JAVA_HOME/jre/lib/security/cacerts -storepass changeit -noprompt -importcert -alias lets-encrypt-x3-cross-signed -file lets-encrypt-x3-cross-signed.der
 - mvn -B -Dmaven.test.skip=true -Dskip.web.build=true -pl graylog2-server versioneye:securityAndLicenseCheck
 - mvn -B -Dmaven.test.skip=true -Dskip.web.build=true assembly:single
-- mvn -B -Dmaven.test.skip=true -Dskip.web.build=true --settings config/settings.xml
-  deploy
+- mvn -B -Dmaven.test.skip=true -Dskip.web.build=true --settings config/settings.xml deploy
 before_install:
 - wget https://dl.dropboxusercontent.com/u/7897865/apache-maven-3.3.9.zip
 - unzip -qq apache-maven-3.3.9.zip
@@ -25,14 +22,14 @@ deploy:
     - 2.0
     jdk: oraclejdk8
     repo: Graylog2/graylog2-server
+  access_key_id: AKIAIGYGO43W76PZMMVA
+  bucket: graylog2-builds
+  local-dir: target/assembly
   provider: s3
+  region: eu-west-1
   secret_access_key:
     secure: cYHsMgnAI08sz9G1Qb7ku2HoTaSn/OBBmjBzyYswX0/Kvb2asQcEGZGOEfYNTGOwdN6DP7p3axi5o+FPw2MLGGpBVz3tAtwYWTbzJR8kCEuGwb8N6abpdkGIn4AfifQ+vbn8zJrIB6HfGGRpDM9QnEjJFtpJO+2SjODzbZzkymE=
   skip_cleanup: true
-  access_key_id: AKIAIGYGO43W76PZMMVA
-  region: eu-west-1
-  bucket: graylog2-builds
-  local-dir: target/assembly
 dist: trusty
 env:
   global:
@@ -45,10 +42,8 @@ language: java
 notifications:
   email: false
   slack:
-    rooms:
-      flakycov: U2MeVOPjdi4up1U793ubeIUZ
+    rooms: flakycov:U2MeVOPjdi4up1U793ubeIUZ
     template:
-    - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository}@%{branch}
-      by %{author} %{result} in %{duration}"
-    - "dashbot: %{repository_name} %{build_id}"
+    - Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository}@%{branch} by %{author} %{result} in %{duration}
+    - 'dashbot: %{repository_name} %{build_id}'
 sudo: required
