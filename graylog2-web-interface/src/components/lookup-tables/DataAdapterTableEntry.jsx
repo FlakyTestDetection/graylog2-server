@@ -6,12 +6,21 @@ import { Button } from 'react-bootstrap';
 import Routes from 'routing/Routes';
 import CombinedProvider from 'injection/CombinedProvider';
 
+import { ErrorPopover } from 'components/lookup-tables';
+
 const { LookupTableDataAdaptersActions } = CombinedProvider.get('LookupTableDataAdapters');
 
 const DataAdapterTableEntry = React.createClass({
 
   propTypes: {
     adapter: React.PropTypes.object.isRequired,
+    error: React.PropTypes.string,
+  },
+
+  getDefaultProps() {
+    return {
+      error: null,
+    };
   },
 
   _onDelete() {
@@ -26,6 +35,7 @@ const DataAdapterTableEntry = React.createClass({
       <tbody>
         <tr>
           <td>
+            {this.props.error && <ErrorPopover errorText={this.props.error} title="Lookup table problem" placement="right" />}
             <LinkContainer to={Routes.SYSTEM.LOOKUPTABLES.DATA_ADAPTERS.show(this.props.adapter.name)}><a>{this.props.adapter.title}</a></LinkContainer>
           </td>
           <td>{this.props.adapter.description}</td>
