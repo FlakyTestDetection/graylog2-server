@@ -86,22 +86,22 @@
         <airline.version>2.3.0</airline.version>
         <amqp-client.version>5.0.0</amqp-client.version>
         <apache-directory-version>1.0.0</apache-directory-version>
-        <auto-value.version>1.5.1</auto-value.version>
+        <auto-value.version>1.5.2</auto-value.version>
         <auto-value-javabean.version>1.0.0</auto-value-javabean.version>
-        <commons-codec.version>1.10</commons-codec.version>
+        <commons-codec.version>1.11</commons-codec.version>
         <commons-email.version>1.5</commons-email.version>
-        <commons-io.version>2.5</commons-io.version>
-        <disruptor.version>3.3.6</disruptor.version>
+        <commons-io.version>2.6</commons-io.version>
+        <disruptor.version>3.3.7</disruptor.version>
         <drools.version>6.5.0.Final</drools.version>
         <elasticsearch.version>2.4.4</elasticsearch.version>
         <jest.version>2.4.10+jackson</jest.version>
         <gelfclient.version>1.4.1</gelfclient.version>
         <grok.version>0.1.7-graylog</grok.version>
         <guava-retrying.version>2.0.0</guava-retrying.version>
-        <guava.version>23.0</guava.version>
+        <guava.version>23.4-jre</guava.version>
         <guice.version>4.1.0</guice.version>
         <HdrHistogram.version>2.1.10</HdrHistogram.version>
-        <hibernate-validator.version>6.0.2.Final</hibernate-validator.version>
+        <hibernate-validator.version>6.0.4.Final</hibernate-validator.version>
         <hk2.version>2.5.0-b32</hk2.version> <!-- The HK2 version should match the version being used by Jersey -->
         <jackson.version>2.8.9</jackson.version>
         <jadconfig.version>0.13.0</jadconfig.version>
@@ -111,17 +111,17 @@
         <javax.inject.version>1</javax.inject.version>
         <javax.ws.rs-api.version>2.0.1</javax.ws.rs-api.version>
         <jbcrypt.version>0.4</jbcrypt.version>
+        <jcip-annotations.version>1.0</jcip-annotations.version>
         <jersey.version>2.25.1</jersey.version>
         <jmte.version>4.0.0</jmte.version>
         <jna.version>4.1.0</jna.version> <!-- for ES, make sure to use the version that ES uses -->
         <joda-time.version>2.9.9</joda-time.version>
         <json-path.version>2.4.0</json-path.version>
-        <jsr305.version>3.0.2</jsr305.version>
         <kafka.version>0.9.0.1</kafka.version>
         <log4j.version>2.9.1</log4j.version>
         <metrics.version>3.2.5</metrics.version>
         <mongodb-driver.version>3.5.0</mongodb-driver.version>
-        <mongojack.version>2.7.0</mongojack.version>
+        <mongojack.version>2.8.0</mongojack.version>
         <natty.version>0.13</natty.version>
         <netty.version>3.10.6.Final</netty.version>
         <okhttp.version>3.9.0</okhttp.version>
@@ -134,6 +134,7 @@
         <shiro.version>1.4.0</shiro.version>
         <sigar.version>1.6.4</sigar.version>
         <slf4j.version>1.7.25</slf4j.version>
+        <spotbugs-annotations.version>3.1.0</spotbugs-annotations.version>
         <swagger.version>1.5.13</swagger.version>
         <syslog4j.version>0.9.60</syslog4j.version>
         <uuid.version>3.2</uuid.version>
@@ -150,7 +151,7 @@
         <fongo.version>2.1.0</fongo.version>
         <jukito.version>1.5</jukito.version>
         <junit.version>4.12</junit.version>
-        <mockito.version>2.10.0</mockito.version>
+        <mockito.version>2.12.0</mockito.version>
         <nosqlunit.version>1.0.0-rc.5</nosqlunit.version>
         <restassured.version>2.9.0</restassured.version>
         <system-rules.version>1.16.1</system-rules.version>
@@ -207,12 +208,12 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.6.1</version>
+                    <version>3.7.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-assembly-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>3.1.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -232,7 +233,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-shade-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>3.1.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -247,7 +248,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-pmd-plugin</artifactId>
-                    <version>3.7</version>
+                    <version>3.8</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -267,12 +268,12 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>versions-maven-plugin</artifactId>
-                    <version>2.3</version>
+                    <version>2.5</version>
                 </plugin>
                 <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>findbugs-maven-plugin</artifactId>
-                    <version>3.0.4</version>
+                    <groupId>com.github.spotbugs</groupId>
+                    <artifactId>spotbugs-maven-plugin</artifactId>
+                    <version>3.1.0-RC8</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -282,17 +283,17 @@
                 <plugin>
                     <groupId>de.thetaphi</groupId>
                     <artifactId>forbiddenapis</artifactId>
-                    <version>2.3</version>
+                    <version>2.4.1</version>
                 </plugin>
                 <plugin>
                     <groupId>com.github.eirslett</groupId>
                     <artifactId>frontend-maven-plugin</artifactId>
-                    <version>1.4</version>
+                    <version>1.6</version>
                 </plugin>
                 <plugin>
                     <groupId>com.github.alexcojocaru</groupId>
                     <artifactId>elasticsearch-maven-plugin</artifactId>
-                    <version>5.11</version>
+                    <version>6.0</version>
                     <configuration>
                         <skip>true</skip>
                     </configuration>
@@ -320,12 +321,12 @@
                     <dependency>
                         <groupId>org.codehaus.plexus</groupId>
                         <artifactId>plexus-compiler-javac-errorprone</artifactId>
-                        <version>2.8.1</version>
+                        <version>2.8.2</version>
                     </dependency>
                     <dependency>
                         <groupId>com.google.errorprone</groupId>
                         <artifactId>error_prone_core</artifactId>
-                        <version>2.0.19</version>
+                        <version>2.1.2</version>
                     </dependency>
                 </dependencies>
             </plugin>
